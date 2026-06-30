@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASOMUINPAL · Asociación de Mujeres Indígenas Productoras de San Antonio de Palmito</title>
+<meta name="description" content="ASOMUINPAL - Asociación de Mujeres Indígenas Productoras para la Conservación e Innovación del Medio Ambiente de San Antonio de Palmito, Sucre. NIT 901.813.984-1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --crema: #F6EFDF;
+    --crema-suave: #EFE5CC;
+    --barro: #B6552C;
+    --barro-oscuro: #8C3F20;
+    --verde-monte: #344A35;
+    --verde-profundo: #233323;
+    --tierra: #3B2A1E;
+    --oro-cana: #C99A45;
+    --texto: #2C2118;
+    --blanco-hueso: #FBF8F1;
+    --max-w: 1180px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--texto);
+    background:var(--crema);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  ul{list-style:none;}
+
+  .wrap{max-width:var(--max-w); margin:0 auto; padding:0 28px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- Patrón tejido (firma visual) ---------- */
+  .tejido-divisor{
+    width:100%;
+    height:14px;
+    background-image: repeating-linear-gradient(45deg, var(--oro-cana) 0 6px, transparent 6px 12px),
+                       repeating-linear-gradient(-45deg, var(--barro) 0 6px, transparent 6px 12px);
+    background-blend-mode: multiply;
+    opacity:0.85;
+  }
+
+  .tejido-fino{
+    height:6px;
+    background-image: repeating-linear-gradient(45deg, var(--verde-monte) 0 4px, transparent 4px 8px);
+  }
+
+  /* ---------- Header / Nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--blanco-hueso);
+    border-bottom:1px solid rgba(59,42,30,0.12);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 0;
+  }
+  .marca{
+    display:flex; align-items:center; gap:12px;
+  }
+  .marca-icono{
+    width:42px; height:42px; flex:none;
+  }
+  .marca-texto{
+    font-family:'Fraunces', serif;
+    font-weight:700;
+    font-size:1.25rem;
+    letter-spacing:0.02em;
+    color:var(--verde-profundo);
+  }
+  .marca-texto span{
+    display:block;
+    font-family:'Work Sans', sans-serif;
+    font-weight:500;
+    font-size:0.62rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--barro-oscuro);
+  }
+  nav ul{display:flex; gap:30px;}
+  nav a{
+    font-size:0.92rem;
+    font-weight:500;
+    color:var(--tierra);
+    position:relative;
+    padding-bottom:4px;
+  }
+  nav a::after{
+    content:"";
+    position:absolute; left:0; bottom:0;
+    width:0; height:2px;
+    background:var(--barro);
+    transition:width 0.25s ease;
+  }
+  nav a:hover::after{width:100%;}
+  .nav-toggle{display:none;}
+
+  @media (max-width:760px){
+    nav ul{
+      position:fixed; inset:64px 0 auto 0;
+      background:var(--blanco-hueso);
+      flex-direction:column; gap:0;
+      transform:translateY(-110%);
+      transition:transform 0.3s ease;
+      border-bottom:1px solid rgba(59,42,30,0.12);
+    }
+    nav ul.abierto{transform:translateY(0);}
+    nav li{border-top:1px solid rgba(59,42,30,0.08);}
+    nav a{display:block; padding:16px 28px;}
+    .nav-toggle{
+      display:flex; flex-direction:column; gap:5px;
+      background:none; border:none; cursor:pointer; padding:8px;
+    }
+    .nav-toggle span{width:24px; height:2px; background:var(--tierra);}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg, var(--verde-profundo) 0%, var(--verde-monte) 100%);
+    color:var(--crema);
+    overflow:hidden;
+    padding:88px 0 110px;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      repeating-linear-gradient(45deg, rgba(201,154,69,0.10) 0 18px, transparent 18px 36px),
+      repeating-linear-gradient(-45deg, rgba(182,85,44,0.10) 0 18px, transparent 18px 36px);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative; display:grid; grid-template-columns:1.1fr 0.9fr; gap:48px; align-items:center;}
+  @media (max-width:880px){.hero-inner{grid-template-columns:1fr;}}
+
+  .hero-eyebrow{
+    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--oro-cana); font-weight:600; margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(2.1rem, 4.4vw, 3.4rem);
+    color:var(--blanco-hueso);
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--oro-cana);
+  }
+  .hero p.lead{
+    font-size:1.08rem; max-width:46ch; color:rgba(251,248,241,0.86);
+    margin-bottom:30px;
+  }
+  .hero-acciones{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    border-radius:3px;
+    font-weight:600;
+    font-size:0.92rem;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .btn-primario{background:var(--barro); color:var(--blanco-hueso);}
+  .btn-primario:hover{transform:translateY(-2px); box-shadow:0 10px 22px rgba(140,63,32,0.35);}
+  .btn-secundario{border:1.5px solid rgba(251,248,241,0.5); color:var(--blanco-hueso);}
+  .btn-secundario:hover{background:rgba(251,248,241,0.1);}
+
+  .hero-medallon{
+    position:relative;
+    aspect-ratio:1;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #C99A45 0%, #B6552C 55%, #5e2c14 100%);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 30px 60px rgba(0,0,0,0.35);
+  }
+  .hero-medallon svg{width:62%; height:62%;}
+
+  /* ---------- Cifras ---------- */
+  .cifras{
+    background:var(--blanco-hueso);
+    padding:38px 0;
+    border-bottom:1px solid rgba(59,42,30,0.1);
+  }
+  .cifras-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;
+  }
+  @media (max-width:700px){.cifras-grid{grid-template-columns:repeat(2,1fr);}}
+  .cifra-num{
+    font-family:'Fraunces', serif; font-size:2.1rem; font-weight:600; color:var(--barro-oscuro);
+  }
+  .cifra-label{font-size:0.82rem; color:var(--tierra); letter-spacing:0.03em;}
+
+  /* ---------- Secciones generales ---------- */
+  section{padding:84px 0;}
+  .eyebrow{
+    font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--barro-oscuro); font-weight:600; margin-bottom:14px;
+  }
+  .titulo-seccion{
+    font-size:clamp(1.7rem, 3vw, 2.3rem);
+    color:var(--verde-profundo);
+    max-width:24ch;
+    margin-bottom:22px;
+  }
+
+  /* ---------- Quiénes somos ---------- */
+  .quienes{background:var(--crema);}
+  .quienes-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  @media (max-width:860px){.quienes-grid{grid-template-columns:1fr;}}
+  .quienes p{color:#473625; max-width:54ch; margin-bottom:16px;}
+  .ficha-legal{
+    background:var(--blanco-hueso);
+    border:1px solid rgba(59,42,30,0.12);
+    border-left:4px solid var(--barro);
+    padding:26px 28px;
+    border-radius:2px;
+  }
+  .ficha-legal dt{
+    font-size:0.74rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--barro-oscuro); font-weight:600; margin-top:14px;
+  }
+  .ficha-legal dt:first-child{margin-top:0;}
+  .ficha-legal dd{font-size:0.98rem; color:var(--tierra);}
+
+  /* ---------- Misión / Visión ---------- */
+  .mv{background:var(--verde-profundo); color:var(--crema);}
+  .mv .eyebrow{color:var(--oro-cana);}
+  .mv .titulo-seccion{color:var(--blanco-hueso);}
+  .mv-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px; margin-top:18px;}
+  @media (max-width:760px){.mv-grid{grid-template-columns:1fr;}}
+  .mv-card{
+    background:rgba(251,248,241,0.06);
+    border:1px solid rgba(251,248,241,0.16);
+    padding:32px;
+    border-radius:3px;
+  }
+  .mv-card h3{font-size:1.3rem; color:var(--oro-cana); margin-bottom:14px;}
+  .mv-card p{color:rgba(251,248,241,0.86);}
+
+  /* ---------- Líneas de trabajo ---------- */
+  .lineas{background:var(--crema-suave);}
+  .lineas-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:26px; margin-top:10px;
+  }
+  @media (max-width:760px){.lineas-grid{grid-template-columns:1fr;}}
+  .linea-card{
+    background:var(--blanco-hueso);
+    padding:30px 28px;
+    border-radius:3px;
+    border-top:3px solid var(--barro);
+  }
+  .linea-card .num{
+    font-family:'Fraunces', serif; font-size:0.85rem; color:var(--oro-cana); font-weight:600;
+    letter-spacing:0.05em;
+  }
+  .linea-card h3{font-size:1.2rem; margin:10px 0 10px; color:var(--verde-profundo);}
+  .linea-card p{font-size:0.95rem; color:#5a4632;}
+
+  /* ---------- Galería ---------- */
+  .galeria{background:var(--crema);}
+  .galeria-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:30px;
+  }
+  @media (max-width:760px){.galeria-grid{grid-template-columns:repeat(2,1fr);}}
+  .galeria-item{
+    aspect-ratio:4/3;
+    border-radius:3px;
+    background:linear-gradient(135deg, var(--oro-cana), var(--barro));
+    display:flex; align-items:center; justify-content:center;
+    color:rgba(251,248,241,0.85);
+    font-size:0.8rem; text-align:center; padding:14px;
+  }
+
+  /* ---------- Contacto ---------- */
+  .contacto{background:var(--tierra); color:var(--crema);}
+  .contacto .eyebrow{color:var(--oro-cana);}
+  .contacto .titulo-seccion{color:var(--blanco-hueso);}
+  .contacto-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:50px; margin-top:10px;}
+  @media (max-width:860px){.contacto-grid{grid-template-columns:1fr;}}
+  .contacto-datos dt{
+    font-size:0.74rem; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--oro-cana); font-weight:600; margin-top:20px;
+  }
+  .contacto-datos dt:first-child{margin-top:0;}
+  .contacto-datos dd{font-size:1.02rem; color:rgba(251,248,241,0.9);}
+
+  form{display:grid; gap:14px;}
+  form .fila2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:560px){form .fila2{grid-template-columns:1fr;}}
+  label{font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--oro-cana); margin-bottom:6px; display:block;}
+  input, textarea{
+    width:100%; padding:12px 14px; border-radius:2px; border:1px solid rgba(251,248,241,0.25);
+    background:rgba(251,248,241,0.06); color:var(--crema); font-family:'Work Sans', sans-serif; font-size:0.95rem;
+  }
+  input:focus, textarea:focus{outline:2px solid var(--oro-cana); outline-offset:1px;}
+  textarea{min-height:110px; resize:vertical;}
+  button[type="submit"]{
+    justify-self:start; border:none; cursor:pointer;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--verde-profundo); color:rgba(251,248,241,0.7); padding:30px 0;}
+  .footer-inner{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; font-size:0.85rem;}
+
+  .skip-link{
+    position:absolute; left:-999px; top:auto;
+    background:var(--barro); color:#fff; padding:10px 16px; z-index:100;
+  }
+  .skip-link:focus{left:12px; top:12px;}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header>
+  <div class="wrap nav-inner">
+    <a class="marca" href="#inicio">
+      <svg class="marca-icono" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="24" cy="24" r="23" fill="#233323"/>
+        <path d="M24 6 L38 24 L24 42 L10 24 Z" stroke="#C99A45" stroke-width="2" fill="none"/>
+        <path d="M24 14 L32 24 L24 34 L16 24 Z" stroke="#B6552C" stroke-width="2" fill="none"/>
+      </svg>
+      <span class="marca-texto">ASOMUINPAL<span>San Antonio de Palmito · Sucre</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav>
+      <ul id="navLista">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#quienes">Quiénes somos</a></li>
+        <li><a href="#mision">Misión y visión</a></li>
+        <li><a href="#lineas">Líneas de trabajo</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="tejido-divisor"></div>
+
+<main id="contenido">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio" style="padding-top:88px;">
+    <div class="wrap hero-inner">
+      <div>
+        <p class="hero-eyebrow">Resguardo indígena Zenú · San Antonio de Palmito, Sucre</p>
+        <h1>Mujeres que tejen <em>territorio</em>, producción y futuro ambiental</h1>
+        <p class="lead">ASOMUINPAL reúne a mujeres indígenas productoras de San Antonio de Palmito que trabajan, organizadas, por la conservación del medio ambiente y la innovación productiva de su territorio.</p>
+        <div class="hero-acciones">
+          <a class="btn btn-primario" href="#contacto">Contáctanos</a>
+          <a class="btn btn-secundario" href="#quienes">Conoce la asociación</a>
+        </div>
+      </div>
+      <div class="hero-medallon">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <g fill="none" stroke="#FBF8F1" stroke-width="2.4" opacity="0.9">
+            <path d="M100 20 L160 60 L160 140 L100 180 L40 140 L40 60 Z"/>
+            <path d="M100 50 L135 72 L135 128 L100 150 L65 128 L65 72 Z"/>
+            <path d="M100 80 L112 90 L112 110 L100 120 L88 110 L88 90 Z" fill="#FBF8F1" opacity="0.95"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+  <div class="tejido-fino"></div>
+
+  <!-- CIFRAS -->
+  <section class="cifras" style="padding:34px 0;">
+    <div class="wrap cifras-grid">
+      <div>
+        <div class="cifra-num">+1</div>
+        <div class="cifra-label">Comunidad indígena Zenú representada</div>
+      </div>
+      <div>
+        <div class="cifra-num">100%</div>
+        <div class="cifra-label">Liderazgo de mujeres productoras</div>
+      </div>
+      <div>
+        <div class="cifra-num">San Antonio<br>de Palmito</div>
+        <div class="cifra-label">Sucre, Colombia</div>
+      </div>
+      <div>
+        <div class="cifra-num">NIT</div>
+        <div class="cifra-label">901.813.984-1</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIÉNES SOMOS -->
+  <section class="quienes" id="quienes">
+    <div class="wrap quienes-grid">
+      <div>
+        <p class="eyebrow">Quiénes somos</p>
+        <h2 class="titulo-seccion">Una organización de base, hecha por y para mujeres indígenas productoras</h2>
+        <p>ASOMUINPAL — Asociación de Mujeres Indígenas Productoras para la Conservación e Innovación del Medio Ambiente de San Antonio de Palmito — es una organización comunitaria que agrupa a mujeres del pueblo Zenú dedicadas a la producción agropecuaria, artesanal y ambiental en su territorio.</p>
+        <p>Desde su quehacer cotidiano, la asociación promueve prácticas productivas amigables con el entorno, la transmisión de saberes ancestrales y el fortalecimiento de liderazgos femeninos como motor de desarrollo para sus comunidades.</p>
+        <p>Trabajamos de la mano con instituciones públicas, fundaciones y cooperantes para gestionar proyectos que mejoren las condiciones de vida de las familias asociadas, sin perder de vista la conservación del medio ambiente como eje transversal.</p>
+      </div>
+      <dl class="ficha-legal">
+        <dt>Nombre completo</dt>
+        <dd>Asociación de Mujeres Indígenas Productoras para la Conservación e Innovación del Medio Ambiente de San Antonio de Palmito</dd>
+        <dt>Sigla</dt>
+        <dd>ASOMUINPAL</dd>
+        <dt>NIT</dt>
+        <dd>901.813.984-1</dd>
+        <dt>Ubicación</dt>
+        <dd>San Antonio de Palmito, Sucre, Colombia</dd>
+        <dt>Naturaleza</dt>
+        <dd>Asociación de base comunitaria, integrada por mujeres indígenas del pueblo Zenú</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- MISIÓN Y VISIÓN -->
+  <section class="mv" id="mision">
+    <div class="wrap">
+      <p class="eyebrow">Hacia dónde vamos</p>
+      <h2 class="titulo-seccion">Misión y visión</h2>
+      <div class="mv-grid">
+        <div class="mv-card">
+          <h3>Misión</h3>
+          <p>Fortalecer las capacidades productivas, organizativas y ambientales de las mujeres indígenas de San Antonio de Palmito, mediante prácticas sostenibles que conserven el medio ambiente, generen ingresos dignos y preserven la identidad cultural Zenú.</p>
+        </div>
+        <div class="mv-card">
+          <h3>Visión</h3>
+          <p>Ser, en el año 2030, una organización referente en el departamento de Sucre por su aporte a la conservación ambiental, la innovación productiva con enfoque étnico y el empoderamiento económico de las mujeres indígenas del territorio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LÍNEAS DE TRABAJO -->
+  <section class="lineas" id="lineas">
+    <div class="wrap">
+      <p class="eyebrow">Qué hacemos</p>
+      <h2 class="titulo-seccion">Líneas de trabajo</h2>
+      <div class="lineas-grid">
+        <div class="linea-card">
+          <p class="num">Conservación</p>
+          <h3>Cuidado del medio ambiente</h3>
+          <p>Acciones de protección y manejo responsable de los recursos naturales del territorio: suelos, agua y cobertura vegetal nativa.</p>
+        </div>
+        <div class="linea-card">
+          <p class="num">Producción</p>
+          <h3>Producción sostenible</h3>
+          <p>Impulso a prácticas agropecuarias y artesanales sostenibles que generan ingresos sin comprometer el equilibrio ambiental.</p>
+        </div>
+        <div class="linea-card">
+          <p class="num">Innovación</p>
+          <h3>Innovación productiva</h3>
+          <p>Incorporación de nuevas técnicas, herramientas y alianzas que mejoren la productividad y el valor agregado de lo producido.</p>
+        </div>
+        <div class="linea-card">
+          <p class="num">Liderazgo</p>
+          <h3>Empoderamiento de la mujer indígena</h3>
+          <p>Formación, acompañamiento y espacios de participación que fortalecen el liderazgo de las mujeres dentro de su comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="galeria" id="galeria">
+    <div class="wrap">
+      <p class="eyebrow">Nuestro territorio</p>
+      <h2 class="titulo-seccion">Galería</h2>
+      <div class="galeria-grid">
+        <div class="galeria-item">Foto del territorio o las asociadas</div>
+        <div class="galeria-item">Foto de actividades productivas</div>
+        <div class="galeria-item">Foto de proyectos ambientales</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="wrap contacto-grid">
+      <div>
+        <p class="eyebrow">Hablemos</p>
+        <h2 class="titulo-seccion">Contacto</h2>
+        <dl class="contacto-datos">
+          <dt>Asociación</dt>
+          <dd>ASOMUINPAL</dd>
+          <dt>NIT</dt>
+          <dd>901.813.984-1</dd>
+          <dt>Ubicación</dt>
+          <dd>San Antonio de Palmito, Sucre, Colombia</dd>
+          <dt>Correo</dt>
+          <dd>asomuinpal@correo.com</dd>
+          <dt>Teléfono / WhatsApp</dt>
+          <dd>+57 300 000 0000</dd>
+        </dl>
+      </div>
+      <form action="https://formsubmit.co/asomuinpal@correo.com" method="POST">
+        <div class="fila2">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" required>
+          </div>
+          <div>
+            <label for="correo">Correo</label>
+            <input id="correo" name="correo" type="email" required>
+          </div>
+        </div>
+        <div>
+          <label for="asunto">Asunto</label>
+          <input id="asunto" name="asunto" type="text">
+        </div>
+        <div>
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" required></textarea>
+        </div>
+        <button class="btn btn-primario" type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<div class="tejido-divisor"></div>
+<footer>
+  <div class="wrap footer-inner">
+    <span>© <span id="anio"></span> ASOMUINPAL — San Antonio de Palmito, Sucre</span>
+    <span>NIT 901.813.984-1</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('anio').textContent = new Date().getFullYear();
+  const toggle = document.getElementById('navToggle');
+  const lista = document.getElementById('navLista');
+  toggle.addEventListener('click', () => {
+    const abierto = lista.classList.toggle('abierto');
+    toggle.setAttribute('aria-expanded', abierto ? 'true' : 'false');
+  });
+  lista.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    lista.classList.remove('abierto');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+
+</body>
+</html>
